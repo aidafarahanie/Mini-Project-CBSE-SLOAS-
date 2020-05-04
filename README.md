@@ -1,2 +1,2 @@
-# Student-Lecturer Online Appointment System (SLOAS)
+# Restaurant Reservation System
 Mini project cbse.

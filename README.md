@@ -1,3 +1,3 @@
 # Restaurant Reservation System
-Mini project cbse.
+
 The overall purpose of this RRS is to ensure the optimal, convenient and efficient table reservation system for both customers and restaurateur. This RRS project is a web-based application for a restaurant. RRS allows customers to reserve their table based on their specific date and time which they can also update the reservation. From this RRS, the customers can view the menu available in the restaurant. In the RRS, both customers and restaurateur can view reservation in order to ease the reservation that already been made by the customers. Both customers and restaurateur can also cancel the reservation that has been made.  On top of that, we hope to develop a system that is a better user experience for all of the end-users of this system.

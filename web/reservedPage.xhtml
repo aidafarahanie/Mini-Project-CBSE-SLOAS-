@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ni interface untuk reserve table.
+interface untuk view menu pon dalam ni jugak cumanya tab yang berbeza
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Reserve table</title>
+        <link rel="stylesheet" href="./css/primeFlex.css" type="text/css"/>
+        <style type="text/css">
+
+            .box{
+                text-align: center;
+                padding-top:10px;
+                border-radius:1px;
+                font-size:20px;
+            }
+            
+            .box h2{
+                font-size:35px;
+                margin-top: 0;
+                padding-top:0px;
+                margin-left: 0px;
+                padding-left:0;
+            }
+            
+            .ui-button-icon-only{
+               font-size:50px;
+            }
+
+            .info{
+                background: none;
+                color: black;
+                border:2px solid gray;
+                margin-left: 20px;
+                border-radius: 5px;
+                margin-top:0;
+                padding-top:0;
+            }
+
+            .booking-box{
+                background:none;
+                color:black;
+                border:3px solid crimson;
+                margin-left:30px;
+                border-radius:15px;
+                padding:0 30px 0 30px;
+                font-family:sans-serif;
+                font-size:20px;
+                margin-top:0px;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .map-box{
+                align: center;
+                border:3px solid gray;
+                margin-left: 30px;
+                border-radius:5px;
+                font-family:sans-serif;
+                font-size:20px;
+                margin-top:20px;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+                height: 250px;
+            }
+
+            .booking-box h3{
+                text-align:center;
+                border-bottom: 1px solid gray;
+                padding:10px;
+                padding-top:0;
+            }
+
+            .bookingButton{
+                padding: 20px;
+                text-align: center;
+            }
+
+            .bookingButton .ui-button{
+                background: crimson;
+                border: solid black;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 5px;
+                margin: 20px auto;
+                box-shadow: none;
+
+            }
+
+            .bookingButton .ui-button:hover{
+                background: #B22222;
+            }
+
+            .one-menu {
+                border:none;
+                padding:0 0;
+                color:black;
+                border-radius:2px;
+            }
+
+            .one-menu .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 10px 5px;
+            }
+
+            .one-menu .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+            }
+
+            .one-menu .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+            .datepick input{
+                border:none;
+                box-shadow: none;
+                border-bottom: 2px solid black;
+                width:80%;
+                color:black;
+                padding:10px 15px;
+            }
+
+            .datepick input:focus{
+                box-shadow:none;
+                border-bottom: 2px solid crimson;
+            }
+
+            .timeonly .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 20px 5px 0 5px;
+            }
+
+            .timeonly .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+                box-shadow: none;
+            }
+
+            .timeonly .ui-button:focus{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+            .timeonly .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .img{
+                width: 200px;
+                height: 100px;
+                align-items: center;
+            }
+
+            .ui-galleria{
+                margin: 0 auto;
+                width: 100%;
+                height:60%;
+                padding:0 auto;
+            }
+
+            .menu .p-col-6{
+                padding-bottom: 0px;
+                
+            }
+            
+            .menu .gambar{
+                border-radius:5px;
+                box-shadow: gray;
+                width:200px; 
+                height:200px;
+            }
+            
+            .p-col-6 h4{
+                font-size:15px;
+            }
+            .p-col-6 h5{
+                font-size:10px;
+            }
+
+            
+
+            .ui-tabs{
+                border: 2px solid crimson;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .ui-tabs-nav{
+                background: none;
+            }
+            
+            .resName h1{
+                margin:0 70px;
+                padding:0;
+                font-size: 60px;
+                
+            }
+            
+            .resName h2{
+                margin:0 80px;
+                padding:0;
+                font-size:40px;
+                
+            }
+            
+            .ui-rating{
+                margin:0 100px 10px 80px;
+                padding:0;
+                font-size:20px;
+            }
+        </style>
+
+
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+
+        <div class="p-grid p-justify-center">
+            
+            <div class="p-col-3">
+                <div class="box"><b>Home</b></div>
+            </div>
+
+            <div class="p-col-5" style="padding-top:50px">
+                <div class="box">
+                    <h2 style="font-family">RESTAURANT RESERVATION SYSTEM</h2>
+                </div>
+            </div>
+            
+            <div class="p-col-1">
+                <div class="box">
+                    <p:link href="manageReserve.xhtml"><i class="fa fa-fw fa-calendar"/></p:link>
+                   
+                   
+                </div>
+            </div>
+            <div class="p-col-1">
+                <div class="box">
+                   <i class="fa fa-bell"></i>
+                </div>
+            </div>
+            
+            <div class="p-col-1">
+                <div class="box">
+                    <i class="fa fa-user"></i>
+                </div>     
+            </div>
+        </div>
+        
+        <div class="p-grid p-justify-center">
+            <div class="p-col-12">
+                <p:galleria  effect="slide" effectDuration="1000">
+                    <p:graphicImage style="width: 100%; height: 70%" value="images/d.jpeg" title="image1" alt="image1 desc" />
+                    <p:graphicImage style="width: 100%; height: 70%" value="images/b.jpeg" title="image1" alt=" image2 desc" />
+                    <p:graphicImage style="width: 100%; height: 70%" value="images/c.jpeg" title="image1" alt=" image3 desc" />
+                </p:galleria>
+            </div>
+        </div>
+        
+        <div class="resName">
+            <h1>The Grand Blue Restaurant-</h1>
+            <h2>Kuala Lumpur Hotel</h2>
+                                
+            <p:rating value="5" readonly="true"/>
+        </div>
+        <div class="p-grid p-justify-center">
+            <div class="p-col-7">  
+                <div class="info">
+                    <p:tabView>
+                        <p:tab title="About">
+                            <h:panelGrid > 
+                                <h:outputText
+                                    value="An all-day dining restaurant where diners can feast their senses on 
+                                    local favorites and regional flavors, be it from the A-La-Carte menu or 
+                                    the dinner buffets." />
+                                
+                                <h4><i><b>Operation Hour</b></i></h4>
+                                <h:outputText value="Restaurant operation hours: 18:00 till 23:30"/>
+                                
+                                
+                            </h:panelGrid>
+                        </p:tab>
+                        
+                        <p:tab title="Menu">
+                            <div class="menu">
+                                
+                                <p:tabView orientation="left">
+                                    <p:tab title="Food" >
+                                        <h:panelGrid  columns="2" cellpadding="10">
+                                            <p:graphicImage class="gambar" value="images/food_a.jpeg"  />
+                                            <p:graphicImage class="gambar" value="images/food_b.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/food_c.jpeg"  />
+                                            <p:graphicImage class="gambar" value="images/food_d.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/food_e.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/food_f.jpeg" />
+                                        </h:panelGrid>
+                                    </p:tab>
+                                    
+                                    <p:tab title="Beverages">
+                                        <h:panelGrid columns="2" cellpadding="10">
+                                           <p:graphicImage class="gambar" value="images/drink_a.jpeg"  />
+                                            <p:graphicImage class="gambar" value="images/drink_b.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/drink_c.jpeg"  />
+                                            <p:graphicImage class="gambar" value="images/drink_d.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/drink_e.jpeg" />
+                                            <p:graphicImage class="gambar" value="images/drink_f.jpeg" />
+                                        </h:panelGrid>
+                                    </p:tab>
+                                    
+                                    <p:tab title="Menu List and Price">
+                                        <h:panelGrid columns="2" cellpadding="10">
+                                            <div class="p-grid p-justify-center">
+                                                <div class="p-col-6">
+                                                    <h4>Strawberry pancake ................ <span>$20.50</span></h4>
+                                                    <h5>Strawberry / Pancake / Honey</h5>
+                                                </div>
+                                                
+                                                <div class="p-col-6">
+                                                    <h4>Paratha chicken ........................... <span>$30.50</span></h4>
+                                                    <h5>Vegetables / Chicken / Hot Sauce</h5>
+                                                </div>
+                                                <div class="p-col-6">
+                                                    <h4>Beef cheese burger ........................ <span>$40.75</span></h4>
+                                                    <h5>Beef / Cheddar / Vegetables</h5>
+                                                </div>
+                                                <div class="p-col-6">
+                                                    <h4>Seafood tomyam noodles .......................... <span>$55.00</span></h4>
+                                                    <h5>Noodles / Prawn / Tom Yam flavour</h5>
+                                                </div>
+                                                <div class="p-col-6">
+                                                    <h4>Tenderloin barbecue steak ...................... <span>$65.00</span></h4>
+                                                    <h5>Tenderloin / Rosemary / Barbecue sauce</h5>
+                                                </div>
+                                                <div class="p-col-6">
+                                                    <h4>Grilled Salmon ........................ <span>$70.50</span></h4>
+                                                    <h5>Salmon / Salad / Avocado</h5>
+                                                </div>
+                                                <div class="p-col-6">
+                                                    <h4>Mocha Cappuccino ................... <span>$110.75</span></h4>
+                                                    <h5>Mocha / Cappucino / Milk</h5>
+                                                    </div>
+                                                <div class="p-col-6">
+                                                    <h4>Orange juice ..................... <span>$220.50</span></h4>
+                                                    <h5>Orange / Lemon</h5>
+                                                </div>
+                                            </div>
+                                            
+                                        </h:panelGrid>
+                                    </p:tab>
+                                </p:tabView>
+                                
+                                
+                                
+                            </div>
+                        </p:tab>
+                    </p:tabView>
+                </div>
+            </div>
+
+            <div class="p-col-4" >
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <div class="booking-box">
+                            <h3>Make a reservation</h3>
+                            <h:form>
+
+                                <h:panelGrid columns="3" columnClasses="column" cellpadding="5">
+
+                                    <h:outputLabel for="pax" value="Pax"/>
+                                    <h:outputLabel for=":" value=":"/>
+                                    <p:selectOneButton class="one-menu" value="#{selectOneView.option}">
+                                        <f:selectItem itemLabel="2" itemValue="2" />
+                                        <f:selectItem itemLabel="4" itemValue="4" />
+                                        <f:selectItem itemLabel="6" itemValue="6" />
+                                        <f:selectItem itemLabel="8" itemValue="8" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                    </p:selectOneButton>
+
+                                    <h:outputLabel for="date" value="Date"/>
+                                    <h:outputLabel for=":" value=":"/>  
+                                    <p:datePicker id="date" class="datepick" value="#{calendarView.date7}"  showIcon="false" />
+
+                                    <h:outputLabel for="time" value="Time"/>
+                                    <h:outputLabel for=":" value=":"/>
+                                    <p:selectManyButton  class="timeonly" value="#{selectManyView.selectedOptions}">
+                                        <f:selectItem itemLabel="6.30-7.30pm" itemValue="6.30-7.30pm" />
+                                        <f:selectItem itemLabel="7.45-8.45pm" itemValue="7.45-8.45pm" />
+                                        <f:selectItem itemLabel="9.00-10.00pm" itemValue="9.00-10.00pm" />
+                                        <f:selectItem itemLabel="10.15-11.15pm" itemValue="10.15-11.15pm" />
+                                    </p:selectManyButton>
+
+                                </h:panelGrid>
+
+
+                                <div class="bookingButton">
+                                    <p:commandButton value="Reserve" icon="" title="Reserve"/>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="p-col-12">
+                        <div class="map-box">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.35289094527!2d101.7057449495322!3d2.9993199978049385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdca7f18a908b7%3A0xe28aef92d5f28bf4!2sUniversiti%20Putra%20Malaysia!5e0!3m2!1sen!2smy!4v1588470574872!5m2!1sen!2smy" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </h:body>
+</html>

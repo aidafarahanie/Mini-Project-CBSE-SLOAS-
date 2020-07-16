@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>View Reservation</title>
+        <link rel="stylesheet" href="../css/primeFlex.css" type="text/css"/>
+        <style type="text/css">
+
+            body{
+                font-family: sans-serif;
+            }
+
+            .icon{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+            }
+
+            .booking-box{
+                background:none;
+                color:black;
+                border:3px solid crimson;
+                border-radius:5px;
+                margin-top: 40px;
+                font-family:sans-serif;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .res-img{
+                padding: 10px 10px 0 10px;
+            }
+
+            .header{
+                background: maroon;
+            }
+
+            .sub-header{
+                text-align: center;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+
+            .container{
+                margin-top: 40px;
+            }
+
+            .container .ui-button{
+                background: none;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+
+            .container .ui-button:hover{
+                background: crimson;
+                color: white;
+            }
+
+            .ui-datatable{
+                text-align: center;
+                background: none;
+            }
+
+
+            .ui-datatable table {
+                table-layout: auto !important;
+            }
+
+            .ui-datatable .ui-datatable-header {
+                text-align: right !important;
+                padding: 10px !important;
+            }
+
+            .container td{
+                border: 2px solid black;
+            }
+
+            .container th{
+                background: none;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="webjars" name="font-aw esome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+
+        <div class="header">
+            <div class="p-grid p-justify-center">
+                <div class="p-col-2">
+                    <div class="box"><h3>RRS</h3></div>
+                </div>
+
+                <div class="p-col-6">
+                    <div class="box">
+                        Home
+                    </div>
+                </div>
+
+                <div class="p-col-4">
+                    <div class="p-grid p-justify-around">
+                        <div class="icon">
+                            <div class="p-col-6">
+                                <i class="fa fa-fw fa-bell"></i>
+                            </div>
+                        </div>
+
+                        <div class="icon">
+                            <div class="p-col-6">
+                                <i class="fa fa-fw fa-user"></i>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid p-justify-center" style="padding-top: 40px;">
+            <div class="p-col-4">
+                <div class="sub-header">
+                    <h1>Manage Reservation</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="p-grid">
+                <div class="p-col">
+                    <h:form>
+                        <p:dataTable id="table" var="c" value="#{basicView.customer}"  resizableColumns="true" sortMode="multiple">
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Search keywords:" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('carsTable2').filter()" style="width:150px" placeholder="Enter keyword"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column headerText="Name">
+                                <h:outputText value="#{c.name}"/>
+                            </p:column>
+
+                            <p:column headerText="Table">
+                                <h:outputText value="#{c.table}"/>
+                            </p:column>
+
+                            <p:column headerText="Time">
+                                <h:outputText value="#{c.time}"/>
+                            </p:column>
+
+                            <p:column headerText="Phone No.">
+                                <h:outputText value="#{c.telNo}"/>
+                            </p:column>
+
+                            <p:column headerText="Pax">
+                                <h:outputText value="#{c.pax}"/>
+                            </p:column>
+
+                            <p:column headerText="Date">
+                                <h:outputText value="#{c.date}"/>
+                            </p:column>
+
+                            <p:column headerText="Email">
+                                <h:outputText value="#{c.email}" />
+                            </p:column>
+
+                            <p:column headerText="Action">
+                                <p:commandButton value="Cancel" action="#{menuView.delete}">
+                                    <p:confirm header="Confirmation" message="Are you sure to cancel this reservation?" icon="fa fa-fw fa-exclamation-triangle" />
+                                </p:commandButton>
+                                
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                                        </p:confirmDialog> 
+                            </p:column>
+                            
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>

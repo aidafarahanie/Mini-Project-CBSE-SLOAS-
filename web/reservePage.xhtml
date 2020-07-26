@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Reserve table</title>
+        <link rel="stylesheet" href="./css/primeFlex.css" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
+        <style type="text/css">
+            
+             *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            html, body{
+                height: 100%;
+                font-family: sans-serif;
+                
+            }
+            
+            .title-text{
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            li, .ui-link{
+                text-decoration: none;
+                font-weight: 500;
+                font-size:16px;
+                color: white;
+            }
+            
+            .nav-link{
+                list-style: none;
+            }
+            
+            .nav-link li{
+                display: inline-block;
+                padding: 0 20px;
+            }
+            
+            .nav-link li .ui-link{
+                transition: all 0.3s ease 0s;
+            }
+            
+            .nav-link li .ui-link:hover{
+                color:#B22222;
+                text-decoration: none;
+                color: red;
+            }
+            
+            .header .ui-button{
+                background-color: crimson;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                margin-right: 20px;
+            }
+            
+            .header .ui-button:hover{
+                background: red;
+            }
+            
+            .header{
+                background: maroon;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 20px 10px;
+            }
+            
+            .logo{
+                cursor: pointer;
+                width: 45px;
+                height: auto;
+                margin-right: auto;
+            }
+            
+            
+            .icon{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+            }
+            
+            .user-photo{
+                width:100%;
+                height:auto;
+            }
+
+            .user-photo img{
+                width: 60px; 
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                padding: 10px;
+                margin-left:2%;
+                float:left; 
+            }
+            
+            .text{
+                width: 100%;
+                padding: 10px;
+            }
+
+            .info{
+                background: none;
+                color: black;
+                border:2px solid gray;
+                margin-left: 20px;
+                border-radius: 5px;
+                margin-top:40px;
+            }
+
+            .booking-box{
+                background:none;
+                color:black;
+                border:3px solid crimson;
+                margin-left:30px;
+                border-radius:5px;
+                padding:20px 30px 0 30px;
+                font-family:sans-serif;
+                font-size:20px;
+                margin-top:40px;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .map-box{
+                align: center;
+                border:3px solid crimson;
+                margin-left: 30px;
+                border-radius:5px;
+                font-family:sans-serif;
+                font-size:20px;
+                margin-top:20px;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+                height: 500px;
+            }
+
+            .booking-box h3{
+                text-align:center;
+                border-bottom: 1px solid gray;
+                padding:10px;
+                padding-top:0;
+            }
+
+
+            /*
+            .booking-box .ui-button{
+                background: crimson;
+                margin: 40px 0 20px 0;
+                border: none;
+                color: white;
+                border-radius: 10px;
+                padding:7px 20px;   
+            }*/
+
+            .bookingButton{
+                padding: 20px;
+                text-align: center;
+            }
+
+            .bookingButton .ui-button{
+                background: crimson;
+                border: solid black;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 5px;
+                margin: 20px auto;
+                box-shadow: none;
+
+            }
+
+            .bookingButton .ui-button:hover{
+                background: #B22222;
+            }
+
+            .one-menu {
+                border:none;
+                padding:0 0;
+                color:black;
+                border-radius:2px;
+            }
+
+            .one-menu .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 10px 5px;
+            }
+
+            .one-menu .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+            }
+
+            .one-menu .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .datepick input{
+                border:none;
+                box-shadow: none;
+                border-bottom: 2px solid black;
+                width:80%;
+                color:black;
+                padding:10px 15px;
+            }
+
+            .datepick input:focus{
+                box-shadow:none;
+                
+                border-bottom: 2px solid crimson;
+            }
+
+            .timeonly .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 20px 5px 0 5px;
+            }
+
+            .timeonly .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+                box-shadow: none;
+            }
+
+            .timeonly .ui-button:focus{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+            .timeonly .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .img{
+                width: 200px;
+                height: 100px;
+                align-items: center;
+            }
+
+            .ui-galleria{
+                margin: auto;
+                margin-top: 40px;
+            }
+
+            .menu .p-col-md-6{
+                padding-bottom: 32px;
+                padding-right: 50px;
+            }
+
+            .resName{
+                font-size: 30px;
+                margin-top: 20px;
+                margin-left: 20px;
+                font-family: 'Cinzel', serif;
+            }
+
+            .ui-tabs{
+                border: 2px solid crimson;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .ui-tabs-nav{
+                background: none;
+            }
+        </style>
+
+
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="webjars" name="font-aw esome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+
+        <div class="header">
+            <div style="margin-right: auto;">
+                <img class="logo" src="./images/logo/tools-and-utensils.png" alt="logo"></img>
+                <span style="color: white;">Restaurant Reservation System</span>
+            </div>
+            <i class="fa fa-fw fa-search fa-lg"></i>
+            <p:inputText style="width: 400px" placeholder="Search"/>
+            
+            <nav class="nav-link">
+                <li><p:link outcome="HomePage">Home</p:link></li>
+                <li><p:link href="#">Explore</p:link></li>
+                <li><p:link outcome="manageReserve">Reservation</p:link></li>
+               <li><p:link href="#about">About</p:link></li>
+            </nav>
+            
+            <p:commandButton value="Login"/>
+        </div>
+
+        <div class="p-grid p-justify-center">
+            <div class="p-col-12">
+                <p:galleria  effect="slide" effectDuration="1000">
+                    <p:graphicImage style="width: 100%; height: 100%" value="images/bg10.jpg" title="image1" alt="image1 desc" />
+                    <p:graphicImage style="width: 100%; height: 100%" value="images/bg11.jpg" title="image1" alt=" image2 desc" />
+                    <p:graphicImage style="width: 100%; height: 100%" value="images/bg12.jpg" title="image1" alt=" image3 desc" />
+                </p:galleria>
+            </div>
+        </div>
+        <div class="resName">
+            <h:outputLabel  value="The Grand Blue Restaurant"/>
+        </div>
+        <div class="p-grid p-justify-center">
+            <div class="p-col-8">  
+                <div class="info">
+                    <p:tabView>
+                        <p:tab title="About">
+                            <h:panelGrid >
+                                <p:graphicImage class="img" value="images/bg3.jpg"/>
+                                <h:outputText
+                                    value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+                                    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+                                    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
+                                    but given to ruthless violence whenever anything stands against the good of the family." />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Menu">
+                            <div class="menu">
+                                <div class="p-grid p-justify-center">
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Vegetable ................ <span>$20.50</span></h4>
+                                        <h5>Chicken / Rosemary / Lemon</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Meat ........................... <span>$30.50</span></h4>
+                                        <h5>Meat / Rosemary / Lemon</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Pork ........................ <span>$40.75</span></h4>
+                                        <h5>Pork / Tooplate / Lemon</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Orange-Rosemary Salad .......................... <span>$55.00</span></h4>
+                                        <h5>Salad / Rosemary / Orange</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Squid ...................... <span>$65.00</span></h4>
+                                        <h5>Squid / Rosemary / Lemon</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Orange-Rosemary Shrimp ........................ <span>$70.50</span></h4>
+                                        <h5>Shrimp / Rosemary / Orange</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Prawn ................... <span>$110.75</span></h4>
+                                        <h5>Chicken / Rosemary / Lemon</h5>
+                                    </div>
+                                    <div class="p-col-md-6 p-col-sm-6">
+                                        <h4>Lemon-Rosemary Seafood ..................... <span>$220.50</span></h4>
+                                        <h5>Seafood / Rosemary / Lemon</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </p:tab>
+                    </p:tabView>
+                </div>
+            </div>
+
+            <div class="p-col-4" >
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <div class="booking-box">
+                            <h3>Make a reservation</h3>
+                            <h:form>
+
+                                <h:panelGrid columns="3" columnClasses="column" cellpadding="5">
+
+                                    <h:outputLabel for="pax" value="Pax"/>
+                                    <h:outputLabel for=":" value=":"/>
+                                    <p:selectOneButton class="one-menu" value="#{reserve.pax}">
+                                        <f:selectItem itemLabel="2" itemValue="2" />
+                                        <f:selectItem itemLabel="4" itemValue="4" />
+                                        <f:selectItem itemLabel="6" itemValue="6" />
+                                        <f:selectItem itemLabel="8" itemValue="8" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                    </p:selectOneButton>
+
+                                    <h:outputLabel for="date"  value="Date"/>
+                                    <h:outputLabel for=":" value=":"/>  
+                                    <p:calendar id="date" class="datepick" value="#{reserve.dates}" />
+
+                                    <h:outputLabel for="time" value="Time"/>
+                                    <h:outputLabel for=":" value=":"/>
+                                    <p:selectManyButton  class="timeonly" value="#{reserve.times}">
+                                        <f:selectItem itemLabel="6.30-7.30pm" itemValue="6.30-7.30pm" />
+                                        <f:selectItem itemLabel="7.45-8.45pm" itemValue="7.45-8.45pm" />
+                                        <f:selectItem itemLabel="9.00-10.00pm" itemValue="9.00-10.00pm" />
+                                        <f:selectItem itemLabel="10.15-11.15pm" itemValue="10.15-11.15pm" />
+                                    </p:selectManyButton>
+
+                                </h:panelGrid>
+
+
+                                <div class="bookingButton">
+                                    <p:commandButton value="Reserve" action="#{reserve.bookReserve()}" icon="" title="Reserve"/>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="p-col-12">
+                        <div class="map-box">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.35289094527!2d101.7057449495322!3d2.9993199978049385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdca7f18a908b7%3A0xe28aef92d5f28bf4!2sUniversiti%20Putra%20Malaysia!5e0!3m2!1sen!2smy!4v1588470574872!5m2!1sen!2smy" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

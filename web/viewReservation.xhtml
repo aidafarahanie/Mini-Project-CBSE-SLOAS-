@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>View Reservation</title>
+        <link rel="stylesheet" href="../css/primeFlex.css" type="text/css"/>
+        <style type="text/css">
+
+            body{
+                font-family: sans-serif;
+            }
+            
+            html, body{
+                height: 100%;
+                font-family: sans-serif;  
+            }
+            
+            .title-text{
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            li, .ui-link{
+                text-decoration: none;
+                font-weight: 500;
+                font-size:16px;
+                color: white;
+            }
+            
+            .nav-link{
+                list-style: none;
+            }
+            
+            .nav-link li{
+                display: inline-block;
+                padding: 0 20px;
+            }
+            
+            .nav-link li .ui-link{
+                transition: all 0.3s ease 0s;
+            }
+            
+            .nav-link li .ui-link:hover{
+                color:#B22222;
+                text-decoration: none;
+                color: red;
+            }
+            
+            .header .ui-button{
+                background-color: crimson;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                margin-right: 20px;
+            }
+            
+            .header .ui-button:hover{
+                background: red;
+            }
+            
+            .header{
+                background: maroon;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 20px 10px;
+            }
+            
+            .logo{
+                cursor: pointer;
+                width: 45px;
+                height: auto;
+                margin-right: auto;
+            }
+
+            .booking-box{
+                background:none;
+                color:white;
+                border:3px solid crimson;
+                border-radius:5px;
+                margin-top: 40px;
+                font-family:sans-serif;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .res-img{
+                padding: 10px 10px 0 10px;
+            }
+
+            .header{
+                background: maroon;
+            }
+
+            .sub-header{
+                text-align: center;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+
+            .container{
+                margin-top: 40px;
+            }
+
+            .container .ui-button{
+                background: none;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+
+            .container .ui-button:hover{
+                background: crimson;
+                color: white;
+            }
+
+            .ui-datatable{
+                text-align: center;
+                background: none;
+            }
+
+
+            .ui-datatable table {
+                table-layout: auto !important;
+            }
+
+            .ui-datatable .ui-datatable-header {
+                text-align: right !important;
+                padding: 10px !important;
+            }
+
+            .container td{
+                border: 2px solid black;
+            }
+
+            .container th{
+                background: none;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="webjars" name="font-aw esome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+
+        <div class="header">
+            <div style="margin-right: auto">
+                <img class="logo" src="./images/logo/tools-and-utensils.png" alt="logo"></img>
+                <span style="color: white;">Restaurant Reservation System</span>
+            </div>
+            <i class="fa fa-fw fa-search fa-lg"></i>
+            <p:inputText style="width: 400px" placeholder="Search"/>
+
+            <nav class="nav-link">
+                <li><p:link href="#">Home</p:link></li>
+                <li><p:link href="#"><i class="fa fa-fw fa-calendar"/></p:link></li>
+                <li><p:link href="#about"><i class="fa fa-fw fa-user"/></p:link></li>
+            </nav>
+
+            <p:commandButton value="Logout" onclick="location.href='index.xhtml'"/>
+        </div>
+
+        <div class="p-grid p-justify-center" style="padding-top: 40px;">
+            <div class="p-col-4">
+                <div class="sub-header">
+                    <h1>Manage Reservation</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="p-grid">
+                <div class="p-col">
+                    <h:form>
+                        <p:dataTable id="table" var="c" value="#{vr.messages}"  resizableColumns="true" sortMode="multiple">
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Search keywords:" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('carsTable2').filter()" style="width:150px" placeholder="Enter keyword"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column headerText="Email">
+                                <h:outputText value="#{c.email}"/>
+                            </p:column>
+
+                            <p:column headerText="Reservation ID">
+                                <h:outputText value="#{c.reservationID}"/>
+                            </p:column>
+
+                            <p:column headerText="Date">
+                                <h:outputText value="#{c.dates}"/>
+                            </p:column>
+
+                            <p:column headerText="Times">
+                                <h:outputText value="#{c.times}"/>
+                            </p:column>
+
+                            <p:column headerText="Pax">
+                                <h:outputText value="#{c.pax}"/>
+                            </p:column>
+
+                            <p:column headerText="Table NO">
+                                <h:outputText value="#{c.tableNo}"/>
+                            </p:column>
+
+                            <p:column headerText="Action">
+                                <p:commandButton value="Delete" action="#{vr.deleteReservation}">
+                                    <f:param name="action" value="#{c.reservationID}"/>
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>

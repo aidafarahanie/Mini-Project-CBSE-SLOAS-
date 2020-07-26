@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html [<!ENTITY copy "&#169;"> <!ENTITY nbsp "&#160;">]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="./css/primeFlex.css" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <style type="text/css">
+            
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            html, body{
+                height: 100%;
+                font-family: sans-serif;  
+            }
+            
+            .title-text{
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            li, .ui-link{
+                text-decoration: none;
+                font-weight: 500;
+                font-size:16px;
+                color: white;
+            }
+            
+            .nav-link{
+                list-style: none;
+            }
+            
+            .nav-link li{
+                display: inline-block;
+                padding: 0 20px;
+            }
+            
+            .nav-link li .ui-link{
+                transition: all 0.3s ease 0s;
+            }
+            
+            .nav-link li .ui-link:hover{
+                color:#B22222;
+                text-decoration: none;
+                color: red;
+            }
+            
+            .header .ui-button{
+                background-color: crimson;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                margin-right: 20px;
+            }
+            
+            .header .ui-button:hover{
+                background: red;
+            }
+            
+            .header{
+                background: maroon;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 20px 10px;
+            }
+            
+            .logo{
+                cursor: pointer;
+                width: 45px;
+                height: auto;
+                margin-right: auto;
+            }
+            
+            .icon{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+            }
+            
+            .user-photo{
+                width:100%;
+                height:auto;
+            }
+
+            .user-photo img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                padding: 10px;
+                margin-left:2%;
+                float:left; 
+            }
+            
+            .box .ui-inputfield{
+                margin-top: 20px;
+                width: 450px;
+                border: 1px solid red;
+                opacity: 0.8;
+            }
+            
+            .text{
+                width: 100%;
+                padding: 10px;
+            }
+            
+            /*======header=======*/
+            .sub-header{
+                min-height: 100vh;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
+                    url(./images/bg10_1.jpg) center/cover no-repeat fixed;
+                margin-top: auto;
+            }
+            
+            .hero{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                background-attachment: fixed;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .hero .title{
+                color: #fff;
+                font-size: 50px;
+            }
+            
+            .hero-button{
+                display: inline-block;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 13px 20px;
+                border-radius: 200px;
+                font-weight: bold;
+                background: crimson;
+                color: #fff;
+                cursor: pointer;
+                border: 2px solid crimson; 
+            }
+            
+            .hero-button:hover{
+                background: #fff;
+                color: crimson;
+                text-decoration: none;
+            }
+            
+            .pulsate{
+                animation: pulsate 3s ease-in-out;
+                animation-iteration-count: infinite;
+                opacity: .3;
+                color: #000;
+            }
+            
+            
+            
+            @-webkit-keyframes pulsate{
+                0%{
+                    opacity: .3;
+                }
+                
+                50%{
+                    opacity: 1;
+                }
+                
+                100%{
+                    opacity: .3; 
+                }
+            }
+            
+            /*========end of header=========*/
+            
+            /*========About us==========*/
+            
+            #about{
+            }
+            
+            .about{
+                margin: 30px;
+                display: flex;
+            }
+            
+            .about-icon{
+                font-size: 60px;
+                color: crimson;
+                margin-right: 20px;
+            }
+            
+            .about-subtitle{
+                text-transform: capitalize;
+                color: crimson;
+                font-size: 25px;
+            }
+            
+            .about-info{
+                margin-top: 10px;
+                line-height: 1.5;
+            }
+            
+            .about-icon:hover, .about-subtitle:hover{
+                transition: transform 2s ease, color 2s ease;
+                transform: translateY(-10px);
+                color: maroon;
+            }
+            
+            @media screen and (min-width: 576px){
+                .about-center{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+                
+                .about{
+                    flex: 0 0 calc(50% - 16px);
+                    
+                }
+            }
+            
+            @media screen and (min-width: 972px){
+                .about{
+                    flex: 0 0 calc(33.3% - 16px);
+                }
+            }
+            
+            
+            /*=========end of About US=========*/
+            /*
+            .box{
+                text-align: center;
+                padding-top:10px;
+                border-radius:1px;
+                font-size:20px;
+            }
+            
+            .box h2{
+                font-size:35px;
+                margin-top: 0;
+                padding-top:0px;
+                margin-left: 0px;
+                padding-left:0;
+            }*/
+            
+            .restaurant{
+                background: crimson; 
+            }
+            
+            .restaurant-image{
+                min-height: 80vh;
+                background: url(./images/bg13.jpg) center/cover fixed no-repeat;
+            }
+            
+            .restaurant-text{
+                min-height: 80vh;
+                diplay: flex;
+                align-items: center;
+                background: crimson;
+                coloumns: #0000;
+                padding: 40px 0;
+            }
+            
+            .restaurant-text-center{
+                width: 90%;
+                margin: auto;
+                color: #fff;
+            }
+            
+            .restaurant-text h1{
+                font-size: 40px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+            
+            .restaurant-text p{
+                margin: 20px 0;
+                line-height: 2;
+            }
+            
+            .card{
+                margin: 0 auto;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+            
+            .card .hero-button2{
+                text-decoration: none;
+                background: crimson;
+                border: 2px solid crimson;
+                border-radius: 20px;
+                color: #fff;
+                padding: 8px;
+                margin-top: 100px;
+                border: 1px solid crimson;
+            }
+            
+            
+            .card .hero-button2:hover{
+                text-decoration: none;
+                background: white;
+                color: crimson;
+            }
+            
+            /*========footer==========*/
+            
+            .footer{
+                width: 100%;
+                display: block;
+                overflow: hidden;
+                padding: 70px 0;
+                box-sizing: border-box;
+                background-color: maroon;
+            }
+            
+            .inner-footer{
+                display: block;
+                margin: 0 auto;
+                width: 1100px;
+                height: 100%;
+            }            
+            
+            .inner-footer .logo-container{
+                width: 25%;
+                float: left;
+                height: 100%;
+                display: block;
+            }
+            
+            .inner-footer .logo-container img{
+                width: 60px;
+                height: auto;
+            }
+            
+            .inner-footer .footer-third{
+                width: calc(21.666666667% - 20px);
+                margin-right: 10px;
+                float: left;
+                height: 100%;
+            }
+            
+            .inner-footer .footer-third:last-child{
+                margin-right: 0;
+            }
+            
+            .inner-footer .footer-third h1{
+                 font-family: 'arial';
+                 font-size: 22px;
+                 color: white;
+                 display: block;
+                 width: 100%;
+                 margin-bottom: 20px;
+            }
+            
+            .inner-footer .footer-third .ui-link{
+                 font-family: 'arial';
+                 font-size: 15px;
+                 color: white;
+                 display: block;
+                 font-weight: 200;
+                 width: 100%;
+                 padding-bottom: 5px;
+            }
+            
+            .inner-footer .footer-third span{
+                color: white;
+                font-family: 'arial';
+                font-size: 16px;
+                font-weight: 200;
+                display: block;
+                width: 100%;
+                padding-top: 40px;
+            }
+            
+            @media(max-width: 600px){
+                .footer .inner-footer{
+                    width: 90%;
+                }
+                
+                .inner-footer .logo-container, .inner-footer .footer-third{
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+            }
+            
+            .inner-footer .footer-third li{
+                display: inline-block;
+                font-size: 20px;
+                padding: 0 5px;
+            }
+            
+            
+            
+            /*========end of footer =========*/
+        </style>
+    </h:head>
+    
+    <h:body>
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+        
+        <div class="header">
+            <div style="margin-right: auto;">
+                <img class="logo" src="./images/logo/tools-and-utensils.png" alt="logo"></img>
+                <span style="color: white;">Restaurant Reservaation Online</span>
+            </div>
+            <i class="fa fa-fw fa-search fa-lg"></i>
+            <p:inputText style="width: 400px" placeholder="Search"/>
+            
+            <nav class="nav-link">
+                <li><p:link outcome="HomePage">Home</p:link></li>
+                <li><p:link href="#">Explore</p:link></li>
+                <li><p:link outcome="manageReserve">Reservation</p:link></li>
+               <li><p:link href="#about">About</p:link></li>
+            </nav>
+            
+            <p:commandButton value="Logout"/>
+        </div>
+        
+       <!--<div class="header">
+            <div class="p-grid p-justify-between">
+                <div class="p-col">
+                    <div class="container-box">
+                        <div class="user-photo">
+                            <i><img src="./images/logo/tools-and-utensils.png"/></i>
+                            <div class="text">
+                                <div style="font-weight: bold; color:white">RRO</div>
+                                <div style="color: white;">Restaurant Reservation Online</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-col">
+                    <div class="box">
+                        <span><i class="fa fa-fw fa-search fa-lg"/></span>
+                        <p:inputText type="text" placeholder="Search"/>
+                    </div>
+                </div>
+
+                <div class="p-col">
+                        <nav>
+                            <ul class="nav-link">
+                                <li><p:link href="#">Home</p:link></li>
+                                <li><p:link href="#">Explore</p:link></li>
+                                <li><p:link href="#about">About us</p:link></li>
+                            </ul>
+                        </nav>
+                        <p:commandButton value="Log in"/>
+                        
+                    </div>
+                </div>
+            </div>-->
+       
+       <!--<div class="icon">
+                            <div class="p-col-6">
+                                <i class="fa fa-fw fa-calendar-o"></i>
+                            </div>
+                        </div>
+
+                        <div class="icon">
+                            <div class="p-col-6">
+                                <i class="fa fa-fw fa-user"></i>
+                            </div>
+                        </div>  -->
+
+        
+        <header class="sub-header">
+            <div class="hero">
+                <h1 class="title">Find a table for any ocassion</h1>
+                <h:form>
+                <p:commandButton class="hero-button pulsate" action="#{test.goReserve()}" value="Book a table"/>
+                </h:form>
+            </div>
+        </header>
+       
+        <section id="restaurant" class="restaurant">
+           <article class="restaurant-text">
+               <div class="restaurant-text-center">
+                   <h1>Explore Restaurant</h1>
+                   <p>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+                   </p>
+               </div>
+               
+               <div class="p-grid p-justify-center">
+               <div class="p-col-4" style="padding: 20px;">
+                   <div class="card">
+                       <img class="card-img-top" src="./images/bg9.jpg" alt="Card image cap"/>
+                       <div class="card-body">
+                           <h5 class="card-title">The Grand Blue Restaurant</h5>
+                           <p:rating value="4" readonly="true"/>
+                           <p class="card-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+                           <p:link href="reservePage.xhtml" class="hero-button2">View Restaurant</p:link>
+                       </div>
+                   </div>
+               </div>
+               <div class="p-col-4" style="padding: 20px;">
+                   <div class="card">
+                       <img class="card-img-top" src="./images/bg2.jpg" alt="Card image cap"/>
+                       <div class="card-body">
+                           <h5 class="card-title">Card title</h5>
+                           <p:rating value="3" readonly="true" />
+                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <p:link href="#" class="hero-button2">View Restaurant</p:link>
+                       </div>
+                   </div>
+               </div>
+               <div class="p-col-4" style="padding: 20px;">
+                   <div class="card">
+                       <img class="card-img-top" src="./images/bg2.jpg" alt="Card image cap"/>
+                       <div class="card-body">
+                           <h5 class="card-title">Card title</h5>
+                           <p:rating value="5" readonly="true"/>
+                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <p:link href="#" class="hero-button2">View Restaurant</p:link>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           </article>
+       </section>
+       
+        
+       <section id="about">
+           <article class="restaurant-image"></article>
+           <div>
+               <h2 class="title-text">About Us</h2>
+           </div>
+           <div class="about-center">
+               <article class="about">
+                   <div class="about-icon">
+                       <i class="fa fa-fw fa-lock"></i>
+                   </div>
+                   <div class="about-text">
+                       <h2 class="about-subtitle">Neque</h2>
+                       <p class="about-info">
+                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam
+                       </p>
+                   </div>
+               </article>
+               <article class="about">
+                   <div class="about-icon">
+                       <i class="fa fa-fw fa-calendar-o"></i>
+                   </div>
+                   <div class="about-text">
+                       <h2 class="about-subtitle">porro</h2>
+                       <p class="about-info">
+                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam
+                       </p>
+                   </div>
+               </article>
+               <article class="about">
+                   <div class="about-icon">
+                       <i class="fa fa-fw fa-bolt"></i>
+                   </div>
+                   <div class="about-text">
+                       <h2 class="about-subtitle">quisquam</h2>
+                       <p class="about-info">
+                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam
+                       </p>
+                   </div>
+               </article>
+               <article class="about">
+                   <div class="about-icon">
+                       <i class="fa fa-fw fa-comments"></i>
+                   </div>
+                   <div class="about-text">
+                       <h2 class="about-subtitle">dolorem</h2>
+                       <p class="about-info">
+                           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam
+                       </p>
+                   </div>
+               </article>
+           </div>
+       </section>
+       
+       <div class="footer">
+           <div class="inner-footer">
+               <div class="logo-container">
+                   <img src="./images/logo/tools-and-utensils.png"/>
+               </div>
+               
+               <div class="footer-third">
+                   <h1>Need Help?</h1>
+                   <p:link>Terms &amp; Conditions</p:link>
+                   <p:link>Privay Policy</p:link>
+               </div>
+               <div class="footer-third">
+                   <h1>More</h1>
+                   <p:link>Brochures</p:link>
+                   <p:link>Donate</p:link>
+               </div>
+               <div class="footer-third">
+                   <h1>Follow Us</h1>
+                   <li><p:link><i class="fa fa-fw fa-facebook fa-lg"/></p:link></li>
+                   <li><p:link><i class="fa fa-fw fa-instagram fa-lg"/></p:link></li>
+                   <li><p:link><i class="fa fa-fw fa-envelope fa-lg"/></p:link></li>
+                   
+                   <span>
+                       Sed ut perspiciatis unde omnis iste natus error sit voluptatem<br/>
+                           accusantium doloremque laudantium, totam rem aperiam eaque<br/>       
+                   </span>
+               </div>
+               </div>
+       </div>
+    </h:body>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

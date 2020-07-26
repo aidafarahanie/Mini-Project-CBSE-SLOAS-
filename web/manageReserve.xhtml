@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>View Reservation</title>
+        <link rel="stylesheet" href="./css/primeFlex.css" type="text/css"/>
+        <style type="text/css">
+
+            body{
+                font-family: sans-serif;
+            }
+
+            .icon{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+            }
+
+            .booking-box{
+                background:none;
+                color:black;
+                border:3px solid crimson;
+                border-radius:5px;
+                margin-top: 40px;
+                font-family:sans-serif;
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .res-img{
+                padding: 10px 10px 0 10px;
+            }
+
+            .header{
+                background: maroon;
+            }
+
+            .sub-header{
+                text-align: center;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+
+
+            .ui-button{
+                background: none;
+                color: black;
+                border: 1px solid black;
+            }
+
+            .res-name{
+                margin-top: 10px; 
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .bookingButton{
+                padding: 20px;
+                text-align: center;
+            }
+
+            .bookingButton .ui-button{
+                background: crimson;
+                border: solid black;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 5px;
+                margin: 20px auto;
+                box-shadow: none;
+
+            }
+
+            .bookingButton .ui-button:hover{
+                background: #B22222;
+            }
+
+            .one-menu {
+                border:none;
+                padding:0 0;
+                color:black;
+                border-radius:2px;
+            }
+
+            .one-menu .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 10px 5px;
+            }
+
+            .one-menu .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+            }
+
+            .one-menu .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .datepick input{
+                border:none;
+                box-shadow: none;
+                border-bottom: 2px solid black;
+                width:80%;
+                color:black;
+                padding:10px 15px;
+            }
+
+            .datepick input:focus{
+                box-shadow:none;
+                border: none;
+                border-bottom: 2px solid crimson;
+            }
+
+            .timeonly .ui-button{
+                background:none;
+                color:black;
+                font-size:15px;
+                border:1px solid black;
+                padding:3px;
+                margin: 20px 5px 0 5px;
+            }
+
+            .timeonly .ui-button:hover{
+                background:crimson;
+                color:white;
+                border:crimson;
+                box-shadow: none;
+            }
+
+            .timeonly .ui-button:focus{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .timeonly .ui-button.ui-state-active{
+                background:crimson;
+                color:white;
+                border:none;
+            }
+
+            .ui-dialog{
+                border: 2px solid crimson;
+            }
+
+            .ui-dialog-titlebar{
+                background: lightgrey;
+                border-bottom: 2px solid black;
+            }
+
+            .ui-menu{
+                color: black;
+                background: white;
+
+            }
+
+            .ui-menuitem:hover{
+                background: lightgrey;
+                box-shadow: none;
+            }
+
+            .user-photo{
+                width:100%;
+                height:auto;
+            }
+
+            .user-photo img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                padding: 10px;
+                margin-left:2%;
+                float:left; 
+            }
+            
+            .text{
+                width: 100%;
+                padding: 10px;
+            }
+            
+             .title-text{
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            li, .ui-link{
+                text-decoration: none;
+                font-weight: 500;
+                font-size:16px;
+                color: white;
+            }
+            
+            .nav-link{
+                list-style: none;
+            }
+            
+            .nav-link li{
+                display: inline-block;
+                padding: 0 20px;
+            }
+            
+            .nav-link li .ui-link{
+                transition: all 0.3s ease 0s;
+            }
+            
+            .nav-link li .ui-link:hover{
+                color:#B22222;
+                text-decoration: none;
+                color: red;
+            }
+            
+            .header .ui-button{
+                background-color: crimson;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                margin-right: 20px;
+            }
+            
+            .header .ui-button:hover{
+                background: red;
+            }
+            
+            .header{
+                background: maroon;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 20px 10px;
+            }
+            
+            .logo{
+                cursor: pointer;
+                width: 45px;
+                height: auto;
+                margin-right: auto;
+            }
+            
+            .icon{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+            }
+            
+
+        </style>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <div style="margin-right: auto;">
+                <img class="logo" src="./images/logo/tools-and-utensils.png" alt="logo"></img>
+                <span style="color: white;">Restaurant Reservaation Online</span>
+            </div>
+            <i class="fa fa-fw fa-search fa-lg"></i>
+            <p:inputText style="width: 400px" placeholder="Search"/>
+            
+            <nav class="nav-link">
+                <li><p:link outcome="HomePage">Home</p:link></li>
+                <li><p:link href="#">Explore</p:link></li>
+                <li><p:link outcome="manageReserve">Reservation</p:link></li>
+               <li><p:link href="#about">About</p:link></li>
+               
+            </nav>
+            
+            <p:commandButton value="Logout"/>
+        </div>
+
+        <div class="p-grid p-justify-center" style="padding-top: 40px;">
+            <div class="p-col-4">
+                <div class="sub-header">
+                    <h1>Manage Reservation</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid p-justify-center">
+            <div class="p-col-6">
+                <div class="booking-box">
+                    <div class="p-grid">
+                        <div class="p-col-4">
+                            <div class="res-img">
+                                <p:graphicImage style="width:100%; height: 100%; background-size: contain" value="images/bg9.jpg"/>
+                            </div>
+                        </div>
+
+                        <div class="p-col-8">
+                            <div class="p-grid">
+                                <div class="p-col-10">
+                                    <div class="res-name">
+                                        <h:outputLabel value="The Grand Blue Restaurant"/>
+                                    </div>
+                                </div>
+                                <div class="p-col-2">
+                                    <h:form>
+                                        <p:menuButton style="margin-top: 10px" collision="flipfit" maxHeight="90vh">
+                                            <p:menuitem value="Update" onclick="PF('dlg1').show();" icon="fa fa-fw fa-refresh"/>
+                                            <p:menuitem value="Delete" action="#{menuView.delete}" icon="fa fa-fw fa-times">
+                                                <p:confirm header="Confirmation" message="Are you sure?" icon="fa fa-fw fa-exclamation-triangle" />
+                                            </p:menuitem>
+                                        </p:menuButton>
+
+                                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                                        </p:confirmDialog> 
+                                    </h:form>   
+                                </div>
+
+                                <div class="p-col-12">
+                                    <h:form>
+                                    <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
+                                        <h:outputLabel value="Pax:"/>
+                                        <h:outputLabel value="#{vr.pax}"/>
+                                        <h:outputLabel value="Time:"/>
+                                        <h:outputLabel value="#{vr.times}"/>
+                                        <h:outputLabel value="Date:"/>
+                                        <h:outputLabel value="#{vr.dates}"/>
+                                        <h:outputLabel value="Table no.:"/>
+                                        <h:outputLabel value="#{vr.tableNo}"/>
+                                    </h:panelGrid>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p:dialog header="Update Reservation" widgetVar="dlg1" minHeight="40" resizable="false" showEffect="fade" hideEffect="explode">
+            <h:form>
+                <h:panelGrid columns="3" columnClasses="column" cellspacing="5">
+                    <h:outputLabel for="pax" value="Pax"/>
+                    <h:outputLabel for=":" value=":"/>
+                    <p:selectOneButton class="one-menu"  required="true" requiredMessage="Enter Details">
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="6" itemValue="6" />
+                        <f:selectItem itemLabel="8" itemValue="8" />
+                        <f:selectItem itemLabel="10" itemValue="10" />
+                    </p:selectOneButton>
+
+                    <h:outputLabel for="date" value="Date"/>
+                    <h:outputLabel for=":" value=":"/>  
+                    <p:datePicker id="date" class="datepick"  showIcon="false" required="true" requiredMessage="Enter Details"/>
+
+                    <h:outputLabel for="time" value="Time"/>
+                    <h:outputLabel for=":" value=":"/>
+                    <p:selectManyButton  class="timeonly"  required="true" requiredMessage="Enter Details">
+                        <f:selectItem itemLabel="6.30-7.30pm" itemValue="6.30-7.30pm" />
+                        <f:selectItem itemLabel="7.45-8.45pm" itemValue="7.45-8.45pm" />
+                        <f:selectItem itemLabel="9.00-10.00pm" itemValue="9.00-10.00pm" />
+                        <f:selectItem itemLabel="10.15-11.15pm" itemValue="10.15-11.15pm" />
+                    </p:selectManyButton>
+                </h:panelGrid>
+
+                <div class="bookingButton">
+                    <p:commandButton value="Submit" action="#" icon="" title="Reserve"/>
+                </div>
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
